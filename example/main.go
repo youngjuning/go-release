@@ -7,9 +7,11 @@ import (
 )
 
 func main() {
-	update, err := release.CheckUpdate("youngjuning", "tpc", "0.0.1")
+	update, err := release.CheckUpdate("denoland", "deno", "0.0.1")
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(update.IsUpdate)
+	if update.IsUpdate {
+		fmt.Printf("Latest version is %v.\n", update.LatestVersion)
+	}
 }
