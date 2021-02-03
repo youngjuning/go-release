@@ -98,7 +98,6 @@ var cmdUpgrade = &cobra.Command{
 func main() {
 	cmdUpgrade.Flags().Bool("force", true, "Force to upgrade")
 	rootCmd.AddCommand(cmdUpgrade)
-	// 初始化应用
 	rootCmd.Execute()
 }
 ```
