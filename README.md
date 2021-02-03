@@ -29,6 +29,7 @@ func main() {
 ## TODO
 
 - [ ] Add RunInstaller function to install binary executable.
+- [ ] Add Test (I can't write it. SOS)
 
 ## Thanks
 
