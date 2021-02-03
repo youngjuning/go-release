@@ -26,6 +26,10 @@ func main() {
 }
 ```
 
+## TODO
+
+- [ ] Add RunInstaller function to install binary executable.
+
 ## Thanks
 
 This project is inspired on https://github.com/denoland/deno. Thanks for the author.
