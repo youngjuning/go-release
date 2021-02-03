@@ -16,10 +16,10 @@ package main
 import "github.com/youngjuning/go-release"
 
 func main() {
-	update, err := release.CheckUpdate("youngjuning", "tpc", "0.0.1")
-	if err != nil {
-		panic(err)
-	}
+  update, err := release.CheckUpdate("youngjuning", "tpc", "0.0.1")
+  if err != nil {
+    panic(err)
+  }
   if update.IsUpdate {
     fmt.Printf("Latest version is %v.\n",update.LatestVersion)
   }
