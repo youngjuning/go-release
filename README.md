@@ -6,7 +6,7 @@ A version control tools based on github release.
 
 We assume the following conditions:
 
-1. You have a binary executable and publish it on GitHub release like [Deno](https://github.com/denoland/deno/releases) do.
+1. You have a binary executable and publish it to GitHub release like [Deno](https://github.com/denoland/deno/releases) do.
 2. You want to realize `upgrade` command like `deno upgrade`
 
 > Try me help you to do that.
