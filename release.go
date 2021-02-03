@@ -9,8 +9,8 @@ import (
 )
 
 type UpdateInfo struct {
-	IsUpdate bool
-	Latest   string
+	IsUpdate      bool
+	LatestVersion string
 }
 
 // CheckUpdate 检查版本
@@ -35,8 +35,8 @@ func CheckUpdate(user string, repo string, current string) (updateInfo *UpdateIn
 		return nil, err
 	}
 	updateInfo = &UpdateInfo{
-		IsUpdate: currentVersion.LessThan(latestVersion),
-		Latest:   latest,
+		IsUpdate:      currentVersion.LessThan(latestVersion),
+		LatestVersion: latest,
 	}
 	return updateInfo, nil
 }
