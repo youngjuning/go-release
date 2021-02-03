@@ -28,4 +28,4 @@ func main() {
 
 ## Thanks
 
-This project is inspired on http://github.com/denoland/deno. Thanks for the author.
+This project is inspired on https://github.com/denoland/deno. Thanks for the author.
