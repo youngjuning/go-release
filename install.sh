@@ -17,17 +17,11 @@ else
 	esac
 fi
 
-release_uri="$1/download/$2-${target}.zip"
-
-if [ ! $3 ]; then
-  home_dir = ".$1"
-else
-  home_dir = $3
-fi
-
-install_home="${install_home:-$HOME/$home_dir}"
-bin_dir="$install_home/bin"
-exe="$bin_dir/$2"
+release_uri="$2/download/$1-${target}.zip"
+echo $release_uri
+tuya_install="${TUYA_INSTALL:-$HOME/.tuya}"
+bin_dir="$tuya_install/bin"
+exe="$bin_dir/tpc"
 
 if [ ! -d "$bin_dir" ]; then
 	mkdir -p "$bin_dir"
