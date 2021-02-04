@@ -3,6 +3,7 @@ package release
 import (
 	"fmt"
 	"net/http"
+	"runtime"
 	"strings"
 
 	"github.com/codeskyblue/go-sh"
@@ -45,6 +46,12 @@ func CheckUpdate(user string, repo string, current string) (updateInfo *UpdateIn
 
 // RunInstaller 执行安装程序安装最新版
 func RunInstaller(latestReleaseURL string, shellName string, homeDirName string) {
-	args := fmt.Sprintf("curl -fsSL https://raw.githubusercontent.com/youngjuning/go-release/main/install.sh | sh -s %s %s %s", latestReleaseURL, shellName, homeDirName)
-	sh.Command("bash", "-c", args).Run()
+	var args string
+	if runtime.GOOS == "windows" {
+		args = fmt.Sprintf("$l=\"%s\";$s=\"%s\";$h=\"%s\";iwr https://raw.githubusercontent.com/youngjuning/tpc/main/install.ps1 -useb | iex", latestReleaseURL, shellName, homeDirName)
+		sh.Command("bash", "-c", args).Run()
+	} else {
+		args = fmt.Sprintf("curl -fsSL https://raw.githubusercontent.com/youngjuning/go-release/main/install.sh | sh -s %s %s %s", latestReleaseURL, shellName, homeDirName)
+		sh.Command("bash", "-c", args).Run()
+	}
 }
