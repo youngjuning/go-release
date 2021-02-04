@@ -3,8 +3,6 @@
 # TODO(everyone): Keep this script simple and easily auditable.
 set -e
 
-release_uri="$2/download/$1-${target}.zip"
-
 if ! command -v unzip >/dev/null; then
 	echo "Error: unzip is required to install tpc (see: https://github.com/youngjuning/go-release#unzip-is-required)." 1>&2
 	exit 1
@@ -18,6 +16,8 @@ else
 	*) target="x86_64-unknown-linux-gnu" ;;
 	esac
 fi
+
+release_uri="$2/download/$1-${target}.zip"
 
 tuya_install="${TUYA_INSTALL:-$HOME/.tuya}"
 bin_dir="$tuya_install/bin"
