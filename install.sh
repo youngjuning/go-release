@@ -18,7 +18,7 @@ else
 fi
 
 release_uri="$2/download/$1-${target}.zip"
-
+echo $release_uri
 tuya_install="${TUYA_INSTALL:-$HOME/.tuya}"
 bin_dir="$tuya_install/bin"
 exe="$bin_dir/tpc"
