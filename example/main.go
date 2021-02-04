@@ -18,13 +18,14 @@ func checkUpgrade(current string, force bool) {
 	if err != nil {
 		panic(err)
 	}
+	// Install to ~/.tuya/bin/tpc
 	if update.IsUpdate {
 		if force {
 			fmt.Printf("Found latest version %v \n", update.LatestVersion)
 		} else {
 			fmt.Printf("Found tpc latest version %v \n", update.LatestVersion)
 		}
-		sh.Command("bash", "-c", "curl -fsSL https://raw.githubusercontent.com/youngjuning/tpc/main/install.sh | sh").Run()
+		release.RunInstaller(update.LatestReleaseURL, "tpc", ".tuya")
 		if !force {
 			fmt.Println("\nPress any key to exit.")
 		}
