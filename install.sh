@@ -3,8 +3,6 @@
 # TODO(everyone): Keep this script simple and easily auditable.
 set -e
 
-release_uri="$2/download/$1-${target}.zip"
-
 if ! command -v unzip >/dev/null; then
 	echo "Error: unzip is required to install tpc (see: https://github.com/youngjuning/go-release#unzip-is-required)." 1>&2
 	exit 1
@@ -19,9 +17,17 @@ else
 	esac
 fi
 
-tuya_install="${TUYA_INSTALL:-$HOME/.tuya}"
-bin_dir="$tuya_install/bin"
-exe="$bin_dir/tpc"
+release_uri="$1/download/$2-${target}.zip"
+
+if [ ! $3 ]; then
+  home_dir = ".$1"
+else
+  home_dir = $3
+fi
+
+install_home="${install_home:-$HOME/$home_dir}"
+bin_dir="$install_home/bin"
+exe="$bin_dir/$2"
 
 if [ ! -d "$bin_dir" ]; then
 	mkdir -p "$bin_dir"
@@ -32,17 +38,17 @@ unzip -d "$bin_dir" -o "$exe.zip"
 chmod +x "$exe"
 rm "$exe.zip"
 
-echo "tpc was installed successfully to $exe"
+echo "$2 was installed successfully to $exe"
 if command -v tpc >/dev/null; then
-	echo "Run 'tpc --help' to get started"
+	echo "Run '$2' to get started"
 else
 	case $SHELL in
 	/bin/zsh) shell_profile=".zshrc" ;;
 	*) shell_profile=".bash_profile" ;;
 	esac
-	echo "# Tuya" >> $HOME/$shell_profile
-	echo "export TUYA_INSTALL=\"$tuya_install\"" >> $HOME/$shell_profile
-	echo "export PATH=\"\$TUYA_INSTALL/bin:\$PATH\"" >> $HOME/$shell_profile
+	echo "# $home_dir" >> $HOME/$shell_profile
+	echo "export install_home=\"$install_home\"" >> $HOME/$shell_profile
+	echo "export PATH=\"\$install_home/bin:\$PATH\"" >> $HOME/$shell_profile
 	source $HOME/$shell_profile
 	echo "Run 'tpc --help' to get started"
 fi
