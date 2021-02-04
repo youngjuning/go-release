@@ -64,7 +64,9 @@ func checkUpgrade(current string, force bool) {
 		} else {
 			fmt.Printf("Found tpc latest version %v \n", update.LatestVersion)
 		}
-		sh.Command("bash", "-c", "curl -fsSL https://raw.githubusercontent.com/youngjuning/tpc/main/install.sh | sh").Run()
+		// bin while install to "~/.tuya/bin/tpc".Please use in your case.
+		// tpc is the string from tpc-*.zip.Please use in your case.
+		release.RunInstaller(update.LatestReleaseURL, "tpc", ".tuya")
 		if !force {
 			fmt.Println("\nPress any key to exit.")
 		}
