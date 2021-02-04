@@ -24,7 +24,6 @@ if [ ! $3 ]; then
 else
   home_dir="$3"
 fi
-echo ${home_dir}
 install_home="${install_home:-$HOME/$home_dir}"
 bin_dir="$install_home/bin"
 exe="$bin_dir/$2"
