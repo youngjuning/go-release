@@ -107,7 +107,8 @@ func main() {
 
 ## TODO
 
-- [ ] Add RunInstaller function to install binary executable.
+- [x] Add RunInstaller function to install binary executable.
+- [ ] Add Windows support for RunInstaller
 - [ ] Add Test (I can't write it. SOS)
 
 ## Thanks
