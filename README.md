@@ -31,7 +31,7 @@ func main() {
   }
   if update.IsUpdate {
     fmt.Printf("Latest version is %v.\n",update.LatestVersion) // out: Latest version is 1.7.1.
-    release.RunInstaller(update.LatestReleaseURL, "deno", ".deno")
+    release.InstallLatest(update.LatestReleaseURL, "deno", ".deno")
   }
 }
 ```
@@ -67,7 +67,7 @@ func checkUpgrade(current string, force bool) {
 		}
 		// bin while install to "~/.tuya/bin/tpc".Please use in your case.
 		// tpc is the string from tpc-*.zip.Please use in your case.
-		release.RunInstaller(update.LatestReleaseURL, "tpc", ".tuya")
+		release.InstallLatest(update.LatestReleaseURL, "tpc", ".tuya")
 		if !force {
 			fmt.Println("\nPress any key to exit.")
 		}
@@ -107,8 +107,8 @@ func main() {
 
 ## TODO
 
-- [x] Add RunInstaller function to install binary executable.
-- [x] Add Windows support for RunInstaller
+- [x] Add InstallLatest function to install binary executable.
+- [x] Add Windows support for InstallLatest
 - [ ] Add Test (I can't write it. SOS)
 
 ## Thanks
@@ -119,7 +119,7 @@ This project is inspired on https://github.com/denoland/deno. Thanks for the aut
 
 ### unzip is required
 
-The program [`unzip`](https://linux.die.net/man/1/unzip) is a requirement for the RunInstaller.
+The program [`unzip`](https://linux.die.net/man/1/unzip) is a requirement for the InstallLatest.
 
 ```sh
 Error: unzip is required to install * (see: https://github.com/youngjuning/go-release#unzip-is-required).

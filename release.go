@@ -44,8 +44,8 @@ func CheckUpdate(user string, repo string, current string) (updateInfo *UpdateIn
 	return updateInfo, nil
 }
 
-// RunInstaller 执行安装程序安装最新版
-func RunInstaller(latestReleaseURL string, shellName string, homeDirName string) {
+// InstallLatest 执行安装程序安装最新版
+func InstallLatest(latestReleaseURL string, shellName string, homeDirName string) {
 	var args string
 	if runtime.GOOS == "windows" {
 		args = fmt.Sprintf("$l=\"%s\";$s=\"%s\";$h=\"%s\";iwr https://raw.githubusercontent.com/youngjuning/tpc/main/install.ps1 -useb | iex", latestReleaseURL, shellName, homeDirName)

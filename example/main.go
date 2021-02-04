@@ -25,7 +25,7 @@ func checkUpgrade(current string, force bool) {
 		} else {
 			fmt.Printf("Found tpc latest version %v \n", update.LatestVersion)
 		}
-		release.RunInstaller(update.LatestReleaseURL, "tpc", ".tuya")
+		release.InstallLatest(update.LatestReleaseURL, "tpc", ".tuya")
 		if !force {
 			fmt.Println("\nPress any key to exit.")
 		}
