@@ -31,6 +31,7 @@ func main() {
   }
   if update.IsUpdate {
     fmt.Printf("Latest version is %v.\n",update.LatestVersion) // out: Latest version is 1.7.1.
+    release.RunInstaller(update.LatestReleaseURL, "deno", ".deno")
   }
 }
 ```
