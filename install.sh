@@ -19,12 +19,13 @@ fi
 
 release_uri="$1/download/$2-${target}.zip"
 
+home_dir =
 if [ ! $3 ]; then
-  home_dir = ".$1"
+  echo ".$1"
 else
-  home_dir = $3
+  echo $3
 fi
-echo $home_dir
+echo ${home_dir}
 install_home="${install_home:-$HOME/$home_dir}"
 bin_dir="$install_home/bin"
 exe="$bin_dir/$2"
