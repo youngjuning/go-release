@@ -107,8 +107,7 @@ func main() {
 
 ## TODO
 
-- [x] Add InstallLatest function to install binary executable.
-- [x] Add Windows support for InstallLatest
+- [] remove InstallLatest
 - [ ] Add Test (I can't write it. SOS)
 - [ ] Add Release CI
 
