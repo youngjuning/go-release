@@ -4,6 +4,9 @@
 # ${l} latestReleaseURL
 # ${s} shellName
 # ${h} homeDirName
+Write-Output "shellName：${s}"
+Write-Output "latestReleaseURL：${l}"
+Write-Output "homeDirName：${h}"
 
 $ErrorActionPreference = 'Stop'
 
