@@ -30,13 +30,13 @@ if (Get-Command Expand-Archive -ErrorAction SilentlyContinue) {
   Expand-Archive $BinZip -Destination $BinDir -Force
 } else {
   if (Test-Path $BinExe) {
-    Remove-Item $BinExe -Force
+    Remove-Item $BinExe -Force -LiteralPath
   }
   Add-Type -AssemblyName System.IO.Compression.FileSystem
   [IO.Compression.ZipFile]::ExtractToDirectory($BinZip, $BinDir)
 }
 
-Remove-Item $BinZip -Force
+Remove-Item $BinZip -Force -LiteralPath
 
 $User = [EnvironmentVariableTarget]::User
 $Path = [Environment]::GetEnvironmentVariable('Path', $User)
