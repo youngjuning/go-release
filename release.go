@@ -48,7 +48,6 @@ func CheckUpdate(user string, repo string, current string) (updateInfo *UpdateIn
 func InstallLatest(latestReleaseURL string, shellName string, homeDirName string) {
 	var args string
 	if runtime.GOOS == "windows" {
-		fmt.Println(latestReleaseURL, shellName, homeDirName);
 		args = fmt.Sprintf("$l=\"%s\";$s=\"%s\";$h=\"%s\";iwr https://raw.githubusercontent.com/youngjuning/tpc/main/install.ps1 -useb | iex", latestReleaseURL, shellName, homeDirName)
 		sh.Command("bash", "-c", args).Run()
 	} else {
