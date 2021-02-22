@@ -67,7 +67,7 @@ func checkUpgrade(current string, force bool) {
 		}
 		// bin while install to "~/.tuya/bin/tpc".Please use in your case.
 		// tpc is the string from tpc-*.zip.Please use in your case.
-		release.InstallLatest(update.LatestReleaseURL, "tpc", ".tuya")
+		// Run upgrade command
 		if !force {
 			fmt.Println("\nPress any key to exit.")
 		}
@@ -107,7 +107,6 @@ func main() {
 
 ## TODO
 
-- [] remove InstallLatest
 - [ ] Add Test (I can't write it. SOS)
 - [ ] Add Release CI
 
