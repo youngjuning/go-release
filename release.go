@@ -3,10 +3,8 @@ package release
 import (
 	"fmt"
 	"net/http"
-	"runtime"
 	"strings"
 
-	"github.com/codeskyblue/go-sh"
 	"github.com/hashicorp/go-version"
 )
 
