@@ -43,14 +43,3 @@ func CheckUpdate(user string, repo string, current string) (updateInfo *UpdateIn
 	}
 	return updateInfo, nil
 }
-
-// InstallLatest 执行安装程序安装最新版
-func InstallLatest(latestReleaseURL string, shellName string, homeDirName string) {
-	var args string
-	if runtime.GOOS == "windows" {
-		// TODO
-	} else {
-		args = fmt.Sprintf("curl -fsSL https://raw.githubusercontent.com/youngjuning/go-release/main/install.sh | sh -s %s %s %s", latestReleaseURL, shellName, homeDirName)
-		sh.Command("bash", "-c", args).Run()
-	}
-}
