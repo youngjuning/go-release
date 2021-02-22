@@ -29,14 +29,14 @@ Invoke-WebRequest $BinUri -OutFile $BinZip -UseBasicParsing
 if (Get-Command Expand-Archive -ErrorAction SilentlyContinue) {
   Expand-Archive $BinZip -Destination $BinDir -Force
 } else {
-  if (Test-Path $BinExe) {
-    Remove-Item $BinExe -Force -LiteralPath
-  }
+#   if (Test-Path $BinExe) {
+#     Remove-Item $BinExe
+#   }
   Add-Type -AssemblyName System.IO.Compression.FileSystem
   [IO.Compression.ZipFile]::ExtractToDirectory($BinZip, $BinDir)
 }
 
-Remove-Item $BinZip -Force -LiteralPath
+Remove-Item $BinZip
 
 $User = [EnvironmentVariableTarget]::User
 $Path = [Environment]::GetEnvironmentVariable('Path', $User)
