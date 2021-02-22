@@ -38,16 +38,16 @@ chmod +x "$exe"
 rm "$exe.zip"
 
 echo "$2 was installed successfully to $exe"
-if command -v tpc >/dev/null; then
-	echo "Run '$2' to get started"
+if command -v $2 >/dev/null; then
+	echo "Run '$2 --help' to get started"
 else
 	case $SHELL in
 	/bin/zsh) shell_profile=".zshrc" ;;
 	*) shell_profile=".bash_profile" ;;
 	esac
-	echo "# $home_dir" >> $HOME/$shell_profile
-	echo "export install_home=\"$install_home\"" >> $HOME/$shell_profile
-	echo "export PATH=\"\$install_home/bin:\$PATH\"" >> $HOME/$shell_profile
-	source $HOME/$shell_profile
-	echo "Run 'tpc --help' to get started"
+	echo "Manually add the directory to your \$HOME/$shell_profile (or similar)"
+	echo "  export install_home=\"$install_home\""
+	echo "  export PATH=\"\$install_home/bin:\$PATH\""
+	echo "Run 'source $HOME/$shell_profile' to restart"
+	echo "Run '$exe --help' to get started"
 fi
