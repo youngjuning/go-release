@@ -107,7 +107,16 @@ func main() {
 
 ## TODO
 
-- [ ] Add Test (I can't write it. SOS)
+- [x] Add Test (I can't write it. SOS)
+```bash
+➜  go-release (main) ✗ go test -v .
+=== RUN   TestRelease
+    release_test.go:18: Latest version is 1.8.0.
+    release_test.go:25: Latest Release URL is https://github.com/denoland/deno/releases/latest.
+--- PASS: TestRelease (0.68s)
+PASS
+ok  	github.com/youngjuning/go-release	0.795s
+```
 - [ ] Add Release CI
 
 ## Thanks
