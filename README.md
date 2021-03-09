@@ -122,21 +122,3 @@ ok  	github.com/youngjuning/go-release	0.795s
 ## Thanks
 
 This project is inspired on https://github.com/denoland/deno. Thanks for the author.
-
-## Known Issues
-
-### unzip is required
-
-The program [`unzip`](https://linux.die.net/man/1/unzip) is a requirement for the InstallLatest.
-
-```sh
-Error: unzip is required to install * (see: https://github.com/youngjuning/go-release#unzip-is-required).
-```
-
-**When does this issue occur?**
-
-During the `install.sh` process, `unzip` is used to extract the zip archive.
-
-**How can this issue be fixed?**
-
-You can install unzip via `brew install unzip` on MacOS or `apt-get install unzip -y` on Linux.
